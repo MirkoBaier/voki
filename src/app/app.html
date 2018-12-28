@@ -1,0 +1,23 @@
+<ion-menu [content]="nav" color="backLight">
+  <ion-header color="backLight">
+    <ion-toolbar color="backLight">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <button color="backLight" ion-item large *ngIf="isAuthenticated" (click)="onLogout()">
+        <ion-icon large name="log-out"></ion-icon>
+        Logout
+      </button>
+      <button color="backLight" large ion-item  *ngIf="isAuthenticated" (click)="onSettings()">
+        <ion-icon large name="settings"></ion-icon>
+        Benutzereinstellungen
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav  #nav [root]="rootPage"></ion-nav>
+
+

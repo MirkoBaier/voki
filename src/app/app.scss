@@ -1,0 +1,47 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+
+ion-menu{
+  ion-content{
+    background-color:  #00DBFF!important;
+  }
+
+}
+
+
+.alert-head {
+  //background-color: #009689;
+  //border: 5px solid red;
+  //color:#e7333c;
+  //$alert-input-placeholder-color: #bfb40b;
+
+  //color: white; // text color for basic alerts
+  button {
+    color: white !important;
+    background-color: color($colors, secondary, base) !important;
+  }
+  .alert-message {
+    color: white; // text color for confirm alerts
+  }
+  .alert-wrapper {
+    color: white;
+    background-color: color($colors, dark, base);
+    border-radius: 20px;
+  }
+}
+

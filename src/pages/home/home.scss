@@ -1,0 +1,31 @@
+page-home {
+  .home-backg{
+    //background-color: #00DBFF;
+    background-image: url('../../assets/imgs/gelb.png');
+    // background: url('../../img/getstart.png');
+    background-repeat: no-repeat;
+    background-size:cover;
+  }
+
+  .home-button{
+    border-radius: 20px;
+  }
+
+  .home-buttonend{
+    border-radius: 20px;
+    opacity: 0.65;
+  }
+
+  .home-buttonNotTurn{
+    border-radius: 20px;
+    opacity: 0.65;
+  }
+
+  .home-col{
+    margin-left: 10px;
+    border-radius: 20px;
+  }
+  .endgames{
+    margin-top: 10px;
+  }
+}

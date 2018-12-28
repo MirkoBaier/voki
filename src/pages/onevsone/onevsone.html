@@ -1,0 +1,24 @@
+<!--
+  Generated template for the OnevsonePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="backLight">
+    <ion-title>Gegner</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="onevsone-backg">
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <button class="enemyonevone" color="red" block large ion-button (click)="randomEnemy()">Zufälliger Gegner</button>
+  <ion-list>
+    <button class="enemyonevone" *ngFor="let item of users" block ion-button large (click)="onLoadpage(item.username)" >
+      {{ item.username }}
+    </button>
+  </ion-list>
+</ion-content>

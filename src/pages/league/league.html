@@ -1,0 +1,20 @@
+
+<ion-header>
+  <ion-navbar color="backLight">
+    <ion-title color="white">Liga</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="home-backg">
+<ion-label  text-center color="white">In welcher Sprache möchtest du dich messen?</ion-label>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list>
+
+      <button class="leaguebutton" large *ngFor="let item of items" block ion-button (click)="onLoadpage(item)">
+      {{ item }}
+      </button>
+
+  </ion-list>
+</ion-content>
