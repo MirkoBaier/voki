@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {AlertController, IonicPage, NavController} from 'ionic-angular';
+import {Component, ViewChild} from '@angular/core';
+import {AlertController, IonicPage, NavController, TextInput} from 'ionic-angular';
 import {AuthService} from "../../services/auth";
 
 
@@ -10,8 +10,11 @@ import {AuthService} from "../../services/auth";
 })
 export class NamePage {
 
+
   constructor(private navCtrl: NavController, private authServce: AuthService, private alertCtrl: AlertController) {
   }
+
+
 
   setName(name: string){
     this.authServce.checkUsername(name).then(res => {

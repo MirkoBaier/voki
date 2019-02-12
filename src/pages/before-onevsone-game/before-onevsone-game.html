@@ -1,19 +1,18 @@
 
-<ion-header>
-
-  <ion-navbar>
-
+<ion-header >
+  <ion-navbar transparent>
   </ion-navbar>
-
 </ion-header>
 
 
-<ion-content padding>
-  <ion-item left>
+<ion-content class="before-backg" padding>
+  <ion-item left class="before-item">
     <ion-label >{{userName}}  {{userPoints}}</ion-label>
     <ion-label > {{enemyName }} {{ enemyPoints}}</ion-label>
   </ion-item>
-
+  <button ion-button color="danger" type="button" (click)="deleteGame()">
+    <ion-icon name="trash"></ion-icon>
+  </button>
 
   <ion-grid>
 

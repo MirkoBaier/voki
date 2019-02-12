@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "301583012596-sjbihslatrm6m7b6h7sqsattapoj2msi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dasvokabelquiz.firstt.uploadd",
+            "certificate_hash": "c81e37235ae247c2092a686e9ad537663f22bc52"
+          }
+        },
+        {
           "client_id": "301583012596-4fc96caf459rtcodvghadmfecvkevsk5.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "301583012596-4fc96caf459rtcodvghadmfecvkevsk5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

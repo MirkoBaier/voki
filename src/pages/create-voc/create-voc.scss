@@ -1,6 +1,8 @@
 page-create-voc {
   .create-voc-backg{
-    background-color: #00DBFF;
+    background-image: url('../../assets/imgs/backpic.png');
+    background-repeat: no-repeat;
+    background-size:cover;
   }
 
   .text-input::-moz-placeholder {

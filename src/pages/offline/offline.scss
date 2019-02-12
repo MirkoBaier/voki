@@ -1,0 +1,59 @@
+page-offline {
+.showsplash{
+  background-color: white;
+}
+
+
+
+  .backpic{
+    background-image: url('../../assets/imgs/backpic.png');
+    background-repeat: no-repeat;
+    background-size:cover;
+  }
+
+  .transjo{
+    background-image: url('../../assets/imgs/backpic.png');
+  }
+
+
+  .text-input::-moz-placeholder {
+    color: #fafafa;
+  }
+
+  .text-input:-ms-input-placeholder {
+    color: #fafafa;
+  }
+
+  .text-input::-webkit-input-placeholder {
+    color:  #fafafa;
+  }
+
+  .text-input{
+    color: color($colors, white);
+    font-size: 1.2em;
+  }
+
+  .round-button{
+    border-radius: 5px;
+  }
+
+  .backoffitem{
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    //background-color: transparent;
+  }
+
+  .item{
+    background-color: transparent;
+  }
+
+  .ion-item{
+    background-color: transparent;
+  }
+
+  .liste{
+    background-color: transparent;
+  }
+
+
+}

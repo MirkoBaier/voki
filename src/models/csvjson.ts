@@ -29,8 +29,8 @@ export class csvjson {
     "General": "alright"
   },
   {
-    "Allgemein": "Ich verstehe (nicht)",
-    "General": "I (do not) understand"
+    "Allgemein": "Ich verstehe nicht",
+    "General": "I do not understand"
   },
   {
     "Allgemein": "Sprechen Sie Deutsch?",
@@ -89,12 +89,12 @@ export class csvjson {
     "General": "I am"
   },
   {
-    "Allgemein": "Es ist nett Sie kennenzulernen.",
-    "General": "It is nice to meet you."
+    "Allgemein": "Es ist nett Sie kennenzulernen",
+    "General": "It is nice to meet you"
   },
   {
-    "Allgemein": "Ich bin X Jahre alt.",
-    "General": "I am X years old."
+    "Allgemein": "Ich bin X Jahre alt",
+    "General": "I am X years old"
   },
   {
     "Allgemein": "Ich komme aus",
@@ -137,16 +137,12 @@ export class csvjson {
     "General": "Have we met before?"
   },
   {
-    "Allgemein": "Dies ist (Name)",
-    "General": "This is (name)"
-  },
-  {
     "Allgemein": "Wie war Ihr Wochenende?",
     "General": "How was your weekend?"
   },
   {
-    "Allgemein": "Begrüssung / Verabschiedung",
-    "General": "Greeting / Farewell"
+    "Allgemein": "Begrüssung",
+    "General": "Greeting"
   },
   {
     "Allgemein": "Hallo",
@@ -182,15 +178,15 @@ export class csvjson {
   },
   {
     "Allgemein": "gut",
-    "General": "well / good"
+    "General": "good"
   },
   {
     "Allgemein": "schlecht",
     "General": "bad"
   },
   {
-    "Allgemein": "Hey / Hallo",
-    "General": "Hey/Hi"
+    "Allgemein": "Hey",
+    "General": "Hey"
   },
   {
     "Allgemein": "Schön Sie zu sehen.",
@@ -357,8 +353,8 @@ export class csvjson {
     "General": "between"
   },
   {
-    "Allgemein": "Zeiten / Daten",
-    "General": "Time / dates"
+    "Allgemein": "Zeit",
+    "General": "Time"
   },
   {
     "Allgemein": "jetzt",
@@ -629,8 +625,8 @@ export class csvjson {
     "General": "cashier"
   },
   {
-    "Allgemein": "Trolley / Warenkorb",
-    "General": "trolley/shopping cart"
+    "Allgemein": "Warenkorb",
+    "General": "shopping cart"
   },
   {
     "Allgemein": "Tasche",
@@ -685,20 +681,20 @@ export class csvjson {
     "General": "In the restaurant"
   },
   {
-    "Allgemein": "Einen Tisch für X Personen, bitte.",
-    "General": "A table for X, please."
+    "Allgemein": "Einen Tisch für X Personen, bitte",
+    "General": "A table for X, please"
   },
   {
-    "Allgemein": "Ich würde gerne bestellen.",
-    "General": "I would like to order."
+    "Allgemein": "Ich würde gerne bestellen",
+    "General": "I would like to order"
   },
   {
     "Allgemein": "Kann ich bitte die Karte haben?",
-    "General": "May I see the menu."
+    "General": "May I see the menu?"
   },
   {
-    "Allgemein": "Die Rechnung bitte.",
-    "General": "Check, please. Can I have the bill."
+    "Allgemein": "Die Rechnung bitte",
+    "General": "Check, please. Can I have the bill"
   },
   {
     "Allgemein": "Frühstück",
@@ -909,7 +905,7 @@ export class csvjson {
     "General": "sixteen"
   },
   {
-    "Allgemein": "Siebzehns",
+    "Allgemein": "Siebzehn",
     "General": "eventeen"
   },
   {
@@ -977,31 +973,31 @@ export class csvjson {
     "General": "billion"
   },
   {
-    "Allgemein": "erste(r)",
+    "Allgemein": "erster",
     "General": "first"
   },
   {
-    "Allgemein": "zweite(r)",
+    "Allgemein": "zweiter",
     "General": "second"
   },
   {
-    "Allgemein": "dritte(r)",
+    "Allgemein": "dritter",
     "General": "third"
   },
   {
-    "Allgemein": "vierte(r)",
+    "Allgemein": "vierter",
     "General": "fourth"
   },
   {
-    "Allgemein": "fünfte(r)",
+    "Allgemein": "fünfter",
     "General": "fifth"
   },
   {
-    "Allgemein": "sechste(r)",
+    "Allgemein": "sechster",
     "General": "sixth"
   },
   {
-    "Allgemein": "siebte(r)",
+    "Allgemein": "siebter",
     "General": "seventh"
   },
   {
@@ -1125,8 +1121,8 @@ export class csvjson {
     "General": "law"
   },
   {
-    "Allgemein": "Mensch / Körper",
-    "General": "Human / Body"
+    "Allgemein": "Mensch",
+    "General": "Human"
   },
   {
     "Allgemein": "Mann",

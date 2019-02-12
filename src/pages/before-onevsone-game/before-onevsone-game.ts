@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController} from 'ionic-angular';
+import {AlertController, IonicPage, LoadingController, NavController} from 'ionic-angular';
 import {OneVoneService} from "../../services/oneVone";
 import {NameService} from "../../services/name";
 import {TrainingsService} from "../../services/training";
@@ -18,20 +18,33 @@ export class BeforeOnevsoneGamePage {
   fieldCorrect: boolean[] = [];
   fieldNotPlayed: boolean[] = [];
   theUserturn: boolean = false;
+  matchID: string;
 
-  constructor(private navCtrl: NavController, private oneVoneService: OneVoneService, private nameService: NameService, private trainingsService: TrainingsService) {
+  enemyUsername: string;
+
+  constructor(private navCtrl: NavController,
+              private oneVoneService: OneVoneService,
+              private nameService: NameService,
+              private trainingsService: TrainingsService,
+              private loadingCtrl: LoadingController,
+              private alertCtrl: AlertController) {
     for(let i = 51; i>0 ; i--) {
       this.fieldNotPlayed.push(true);
       this.fieldCorrect.push(true);
     }
   }
 
-  ionViewDidEnter(){
+  ionViewWillEnter(){
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    loading.present();
     if(this.oneVoneService.trainingsModus==false) {
       this.oneVoneService.getMatchIdByUsername(this.oneVoneService.enemyNow).then(res => {
         this.oneVoneService.getSomething(this.nameService.userId, res).then(ress => {
           this.theUserturn = ress[0].userTurn;
-          // this.oneVoneService. = ress[0].vocName;
+          this.enemyUsername = ress[0].enemy;
+          this.matchID = ress[0].matchId;
           //Für die richtige Seite
           if (ress[0].startedFrom == ress[0].user) {
             this.userName = ress[0].enemy;
@@ -48,15 +61,16 @@ export class BeforeOnevsoneGamePage {
             this.fieldNotPlayed[i] = false;
             this.fieldCorrect[i] = ress[0].isCorrect[i];
           }
-
+          loading.dismiss();
         })
       });
     }else{
       this.trainingsService.getMatchIdByUsername(this.trainingsService.enemyNow).then(res => {
         this.trainingsService.getSomething(this.nameService.userId, res).then(ress => {
-          console.log(ress[0].vocName);
-          this.theUserturn = ress[0].userTurn;
 
+          this.theUserturn = ress[0].userTurn;
+          this.enemyUsername = ress[0].enemy;
+          this.matchID = ress[0].matchId;
           //Für die richtige Seite
           if (ress[0].startedFrom == ress[0].user) {
             this.userName = ress[0].enemy;
@@ -73,7 +87,7 @@ export class BeforeOnevsoneGamePage {
             this.fieldNotPlayed[i] = false;
             this.fieldCorrect[i] = ress[0].isCorrect[i];
           }
-
+          loading.dismiss();
         })
       });
     }
@@ -89,5 +103,36 @@ export class BeforeOnevsoneGamePage {
       this.navCtrl.setRoot('TrainingsGamePage');
     }
   }
+
+  deleteGame(){
+    this.showConfirm();
+  }
+
+  showConfirm() {
+    const confirm = this.alertCtrl.create({
+      title: 'Spiel löschen?',
+      message: 'Möchtest du wirklich das Spiel löschen?',
+      buttons: [
+        {
+          text: 'Nein',
+          handler: () => {
+
+          }
+        },
+        {
+          text: 'Ja',
+          handler: () => {
+            if(this.oneVoneService.trainingsModus==false) {
+              this.oneVoneService.deleteMatch(this.enemyUsername, this.matchID).then(() => this.navCtrl.setRoot('HomePage'));
+            }else{
+              this.trainingsService.deleteMatch(this.enemyUsername, this.matchID).then(() => this.navCtrl.setRoot('HomePage'));
+            }
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
 
 }

@@ -1,22 +1,64 @@
-<ion-menu [content]="nav" color="backLight">
-  <ion-header color="backLight">
-    <ion-toolbar color="backLight">
+
+<div *ngIf="showSplash" class="splash">
+  <!--<div *ngIf="showSplash" class="splashwhite"></div>-->
+  <div class="spinnerr"></div>
+</div>
+
+
+
+<ion-menu [content]="nav">
+  <ion-header color="dark">
+    <ion-toolbar color="dark">
       <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content>
+  <ion-content color="dark">
     <ion-list>
-      <button color="backLight" ion-item large *ngIf="isAuthenticated" (click)="onLogout()">
+      <button color="dark"  ion-item large *ngIf="isAuthenticated" (click)="onLogout()">
         <ion-icon large name="log-out"></ion-icon>
         Logout
       </button>
-      <button color="backLight" large ion-item  *ngIf="isAuthenticated" (click)="onSettings()">
+      <button color="dark" large ion-item  *ngIf="isAuthenticated" (click)="onSettings()">
         <ion-icon large name="settings"></ion-icon>
         Benutzereinstellungen
+      </button>
+      <button color="dark" ion-item large *ngIf="this.authService.OfflineMenu==true" (click)="onLoadOnline()">
+        <ion-icon large name="log-out"></ion-icon>
+        Online-Modus
       </button>
     </ion-list>
   </ion-content>
 </ion-menu>
+<!--<ion-menu *ngIf="this.authService.OfflineMenu==true" [content]="nav" color="backLight">-->
+  <!--<ion-header color="backLight">-->
+    <!--<ion-toolbar color="backLight">-->
+      <!--<ion-title>Menu</ion-title>-->
+    <!--</ion-toolbar>-->
+  <!--</ion-header>-->
+  <!--<ion-content>-->
+    <!--<ion-list>-->
+      <!--<button color="backLight" ion-item large *ngIf="isAuthenticated" (click)="onLoadOnline()">-->
+        <!--<ion-icon large name="log-out"></ion-icon>-->
+       <!--Online-Modus-->
+      <!--</button>-->
+    <!--</ion-list>-->
+  <!--</ion-content>-->
+<!--</ion-menu>-->
+<!--<ion-menu [content]="nav" color="backLight">-->
+  <!--<ion-header color="backLight">-->
+    <!--<ion-toolbar color="backLight">-->
+      <!--<ion-title>Menu</ion-title>-->
+    <!--</ion-toolbar>-->
+  <!--</ion-header>-->
+  <!--<ion-content>-->
+    <!--<ion-list>-->
+      <!--<button color="backLight" ion-item large *ngIf="isAuthenticated" (click)="onLoadOnline()">-->
+        <!--<ion-icon large name="log-out"></ion-icon>-->
+        <!--Online-Modus-->
+      <!--</button>-->
+    <!--</ion-list>-->
+  <!--</ion-content>-->
+<!--</ion-menu>-->
 
 <ion-nav  #nav [root]="rootPage"></ion-nav>
 

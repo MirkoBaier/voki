@@ -1,6 +1,8 @@
+import firebase from 'firebase/app';
+import 'firebase/firestore'
+import 'firebase/auth'
 
-
-import * as firebase from 'firebase/app';
+// import * as firebase from 'firebase/app';
 import {Injectable} from "@angular/core";
 import {AngularFirestore, AngularFirestoreDocument} from "@angular/fire/firestore";
 import {AngularFireAuth} from "@angular/fire/auth";
@@ -16,6 +18,9 @@ export class AuthService {
   hier: boolean = false;
   idFromUsername: string;
   newReg: boolean = false;
+  loggedIn: boolean = false;
+  OfflineMenu: boolean;
+  splash: boolean = true;
   constructor( private afAuth: AngularFireAuth,
                private fireStore: AngularFirestore,
                private nameService: NameService,
@@ -23,6 +28,11 @@ export class AuthService {
                private platform: Platform){
   }
 
+  splashing(){
+    setTimeout(() => {
+      this.splash = false
+    }, 4000);
+  }
 
   signup(email: string, password: string, username: string) {
        return firebase.auth().createUserWithEmailAndPassword(email, password);
@@ -105,19 +115,6 @@ export class AuthService {
     }
  }
 
- // async nativeGoogleLogin(){
- //
- //   this.gplus.login({
- //     'webClientId': '301583012596-nep4668ggiednu1bsnc7ht5ccq641j7d.apps.googleusercontent.com',
- //     'offline': true
- //   }).then(res=>{
- //     firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(res.idToken))
- //       .then(suc => {
- //         alert('Login succes')
- //       }).catch(ns => {
- //       alert('not Succes')
- //     })
- //   } )
 
 
 
@@ -125,12 +122,13 @@ export class AuthService {
      try {
 
        const gplusUser = await this.gplus.login({
-         'webClientId': '301583012596-4fc96caf459rtcodvghadmfecvkevsk5.apps.googleusercontent.com',
+         'webClientId': '301583012596-c32nc1ai2h3iqt6jpnfbpansunrsseg8.apps.googleusercontent.com',
          'offline': true,
          'scopes': 'profile email'
        });
         console.log(gplusUser);
-       await this.afAuth.auth.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(gplusUser.idToken))
+        await firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(gplusUser.idToken));
+       // await this.afAuth.auth.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(gplusUser.idToken))
 
      } catch(err) {
        console.log(err)

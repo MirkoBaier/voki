@@ -1,6 +1,9 @@
 page-trainings-game {
   .trainingBackg{
-    background-color: #00DBFF;
+    //background-color: #00DBFF;
+    background-image: url('../../assets/imgs/backpic.png');
+    background-repeat: no-repeat;
+    background-size:cover;
   }
   .button2 {
     background-color: #4CAF50; /* Green */
@@ -54,5 +57,7 @@ page-trainings-game {
       color: #fff;
       text-shadow: 2px 2px 4px #000000;
   }
+
+
 
 }

@@ -1,7 +1,11 @@
+import firebase from 'firebase/app';
+import 'firebase/firestore'
+import 'firebase/auth'
+
 import {Injectable} from "@angular/core";
 import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from "@angular/fire/firestore";
 import {AngularFireAuth} from "@angular/fire/auth";
-import * as firebase from 'firebase/app';
+// import * as firebase from 'firebase/app';
 import {NameService} from "./name";
 import {Game} from "../models/game";
 import {AuthService} from "./auth";
@@ -537,7 +541,7 @@ export class OneVoneService {
   }
 
 
-  //Spiel löschen aus der Spielliste
+  //Spiel löschen aus der Spielliste  username=enemyusername
   async deleteMatch(username: string, matchId: string) {
     let idUser = this.authService.getActiveUser().uid;
     await this.authService.getUserIdByUsername(username);

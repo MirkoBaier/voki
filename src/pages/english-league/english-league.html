@@ -1,7 +1,6 @@
 
 <ion-header>
-  <ion-navbar color="backLight">
-    <ion-title>Englisch-Liga</ion-title>
+  <ion-navbar transparent>
   </ion-navbar>
 </ion-header>
 
@@ -11,19 +10,19 @@
   Starten
   </button>
 
-  <ion-segment [(ngModel)]="englishLeagues">
-    <ion-segment-button value="gold">
+  <ion-segment [(ngModel)]="englishLeagues" color="white">
+    <ion-segment-button value="gold" color="white">
       Gold
     </ion-segment-button>
-    <ion-segment-button value="silber">
+    <ion-segment-button value="silber" color="white">
       Silber
     </ion-segment-button>
-    <ion-segment-button value="bronze">
+    <ion-segment-button value="bronze" color="white">
       Bronze
     </ion-segment-button>
   </ion-segment>
 
-  <div [ngSwitch]="englishLeagues" >
+  <div [ngSwitch]="englishLeagues">
     <ion-item *ngSwitchCase="'gold'" class="test-wrapper">
       <ion-list *ngFor="let item of arrayPoints; let i = index;">
         <ion-item *ngIf="item.league=='gold'">
@@ -34,9 +33,9 @@
       </ion-list>
     </ion-item>
 
-    <ion-item *ngSwitchCase="'silber'" color="backLight">
+    <ion-item *ngSwitchCase="'silber'">
       <ion-list *ngFor="let item of arrayPoints; let i = index;">
-        <ion-item *ngIf="item.league=='silver'" color="backLight">
+        <ion-item *ngIf="item.league=='silver'" >
           {{i+1}} {{item.name}}
           <ion-icon name="heart"></ion-icon>
           {{item.points}}
@@ -44,9 +43,9 @@
       </ion-list>
     </ion-item>
 
-    <ion-item *ngSwitchCase="'bronze'" color="backLight">
+    <ion-item *ngSwitchCase="'bronze'">
       <ion-list *ngFor="let item of arrayPoints; let i = index;">
-        <ion-item *ngIf="item.league=='bronze'" color="backLight">
+        <ion-item *ngIf="item.league=='bronze'">
           {{i+1}} {{item.name}}
           <ion-icon name="heart"></ion-icon>
           {{item.points}}

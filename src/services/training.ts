@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {NameService} from "./name";
 import {AuthService} from "./auth";
-import * as firebase from "firebase";
+// import * as firebase from "firebase";
 import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from "@angular/fire/firestore";
 import {AlertController} from "ionic-angular";
 import {VocubalarService} from "./vocubalar";
@@ -11,6 +11,9 @@ import {Game} from "../models/game";
 import {Notification} from "../models/notification";
 import {Randomgame} from "../models/randomgame";
 
+import firebase from 'firebase/app';
+import 'firebase/firestore'
+import 'firebase/auth'
 @Injectable()
 export class TrainingsService{
   helpGer: string[] = [];

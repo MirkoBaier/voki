@@ -8,7 +8,7 @@
     <ion-item class="logintrans">
       <ion-label color="white" fixed>Mail</ion-label>
       <ion-input
-        autofocus
+        class="text-input"
         type="email"
         ngModel
         name="email"
@@ -17,13 +17,14 @@
     <ion-item class="logintrans">
       <ion-label color="white" fixed>Passwort</ion-label>
       <ion-input
+        class="text-input"
         type="password"
         ngModel
         name="password"
         required></ion-input>
     </ion-item>
   </ion-list>
-  <button large class="loginbutton" ion-button block type="submit" [disabled]="!f.valid">Login</button>
+  <button color="white" large class="loginbutton" ion-button block type="submit" [disabled]="!f.valid">Login</button>
   </form>
   <button color="white" large block ion-button clear (click)="onLoad(registrationPage)">Hier registrieren</button>
   </div>

@@ -24,6 +24,10 @@ import {NetworkService} from "../services/networkservice";
 import { HttpClientModule } from '@angular/common/http';
 import {GooglePlus} from "@ionic-native/google-plus";
 import { CommonModule } from '@angular/common';
+import {NativePageTransitions} from "@ionic-native/native-page-transitions";
+import {OfflineService} from "../services/offlineservice";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+
 
 var config = {
   apiKey: "AIzaSyBRSdQh2ebE4K8yaB9Gd3QeGmZoSB1DMw8",
@@ -42,8 +46,11 @@ var config = {
   imports: [
     CommonModule,
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
-    IonicModule.forRoot(VokabelQuiz),
+    IonicModule.forRoot(VokabelQuiz, {
+      preloadModules: true // <- Here!
+    }),
     IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(config),
     AngularFireAuthModule,
@@ -54,6 +61,7 @@ var config = {
     VokabelQuiz
   ],
   providers: [
+    NativePageTransitions,
     GooglePlus,
     AuthService,
     StatusBar,
@@ -67,6 +75,7 @@ var config = {
     TrainingsService,
     NetworkService,
     Network,
+    OfflineService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

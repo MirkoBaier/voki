@@ -1,10 +1,13 @@
 import {Injectable} from "@angular/core";
 import {AngularFirestore, AngularFirestoreDocument} from "@angular/fire/firestore";
 import {AngularFireAuth} from "@angular/fire/auth";
-import * as firebase from 'firebase/app';
+// import * as firebase from 'firebase/app';
 import {Points} from "../models/points";
 import {NameService} from "./name";
 
+import firebase from 'firebase/app';
+import 'firebase/firestore'
+import 'firebase/auth'
 
 @Injectable()
 export class PointsService{

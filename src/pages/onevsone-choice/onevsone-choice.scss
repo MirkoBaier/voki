@@ -1,6 +1,9 @@
 page-onevsone-choice {
   .onevsone-choice-backg{
-    background-color: #00DBFF;
+    //background-color: #00DBFF;
+    background-image: url('../../assets/imgs/backpic.png');
+    background-repeat: no-repeat;
+    background-size:cover;
   }
   .text-input{
     color: white;

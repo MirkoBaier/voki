@@ -1,6 +1,6 @@
 page-login {
 .login-backg{
-    background-image: url('../../assets/imgs/blau.png');
+    background-image: url('../../assets/imgs/backpic.png');
     background-repeat: no-repeat;
     background-size:cover;
 
@@ -15,5 +15,22 @@ page-login {
 
   .logdiff{
     margin-top: 50%;
+  }
+
+
+  .text-input::-moz-placeholder {
+    color: #fafafa;
+  }
+
+  .text-input:-ms-input-placeholder {
+    color: #fafafa;
+  }
+
+  .text-input::-webkit-input-placeholder {
+    color:  #fafafa;
+  }
+
+  .text-input{
+    color: color($colors, white);
   }
 }

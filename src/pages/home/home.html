@@ -11,6 +11,9 @@
 
 
 <ion-content padding class="home-backg">
+  <div *ngIf="this.authService.splash" class="showsplash">
+  </div>
+  <div *ngIf="!this.authService.splash">
   <ion-grid>
   <ion-badge class="home-button" large block *ngIf="userName!=null">
   Eingeloggt als: {{userName}}
@@ -28,10 +31,17 @@
       </button>
         </ion-col>
       </ion-row>
+    <ion-row>
+      <ion-col col-6>
     <button icon-left="true" class="home-button" large block ion-button (click)="onLoadOnevsOne()">
       <ion-icon name="school"></ion-icon>
       1 vs 1
     </button>
+      </ion-col>
+      <ion-col col-6>
+      <button ion-button class="home-button" block large (click)="loadOffline()">Offline</button>
+      </ion-col>
+    </ion-row>
     </ion-grid>
   <ion-badge class="home-button" block>
     Offene Spiele
@@ -70,6 +80,7 @@
     </button>
           </ion-list>
         </ion-scroll>
+  </div>
 </ion-content>
 
 

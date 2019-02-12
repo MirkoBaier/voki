@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {AlertController, NavController, ToastController} from 'ionic-angular';
+import {AlertController, LoadingController, NavController, ToastController} from 'ionic-angular';
 import {AuthService} from "../../services/auth";
 import {NameService} from "../../services/name";
 import {OneVoneService} from "../../services/oneVone";
@@ -11,6 +11,8 @@ import {FcmProvider} from "../../services/fcm";
 import {TrainingsGame} from "../../models/trainingsGame";
 import {TrainingsService} from "../../services/training";
 import {VocubalarService} from "../../services/vocubalar";
+import {NativePageTransitions, NativeTransitionOptions} from "@ionic-native/native-page-transitions";
+
 
 
 @IonicPage()
@@ -18,7 +20,7 @@ import {VocubalarService} from "../../services/vocubalar";
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-//ionic cordova build android --release --aot  --minifyjs --minifycss -- -- --versionCode=0.0.7
+//ionic cordova build android --build --release --aot  --minifyjs --minifycss -- -- --versionCode=0.0.7
 export class HomePage {
   @ViewChild('nav') nav: NavController;
   userName: any;
@@ -27,6 +29,8 @@ export class HomePage {
   openTrainingsGamesNotTurn: Observable<TrainingsGame[]>;
   openGames: Observable<Game[]>;
   openGamesNotTurn: Observable<Game[]>;
+
+
 
   finishedTrainingsGames: Observable<TrainingsGame[]>;
   finishedGames: Observable<Game[]>;
@@ -41,13 +45,19 @@ export class HomePage {
               private fcm: FcmProvider,
               private toastCtrl: ToastController,
               private trainingsService: TrainingsService,
-              private vocubalarService: VocubalarService
+              private vocubalarService: VocubalarService,
+              private loadingCtrl: LoadingController,
+              private nativePageTransitions: NativePageTransitions
   ) {
 
 
   }
 
   async ngOnInit(): Promise<any> {
+    const loader = this.loadingCtrl.create({
+      content: "Please wait...",
+    });
+    loader.present();
     if (this.userName == undefined) {
       await this.nameService.getUsername().then(name => {
         this.userName = name;
@@ -78,11 +88,12 @@ export class HomePage {
     this.openTrainingsGames = this.trainingsService.getStartedGamesList().valueChanges().takeUntil(this.ngUnsubscribe);
     this.finishedGames = this.oneVoneService.getFinishedGamesList().valueChanges().takeUntil(this.ngUnsubscribe);
     this.openGames = this.oneVoneService.getStartedGamesList().valueChanges().takeUntil(this.ngUnsubscribe);
-
+    loader.dismiss();
   }
 
 
   async ionViewWillEnter() {
+    this.authService.OfflineMenu=false;
     await this.oneVoneService.showGameStats().then(res => {
       if (res.length != 0) {
         for (let i = (res.length - 1); i >= 0; i--) {
@@ -111,6 +122,7 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
+    this.authService.OfflineMenu = false;
     this.fcm.getToken();
 
     this.fcm.listenToNotifications().pipe(tap(msg => {
@@ -205,6 +217,16 @@ export class HomePage {
 
   onLoadOnevsOne() {
     this.navCtrl.push('OnevsoneChoicePage');
+  }
+
+  loadOffline() {
+    let options: NativeTransitionOptions = {
+      direction: 'up',
+      duration: 600
+    };
+
+    this.nativePageTransitions.flip(options);
+    this.navCtrl.setRoot('OfflinePage');
   }
 
   async onLoadOnevsOneGame(enemy: string) {

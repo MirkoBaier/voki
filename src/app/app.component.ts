@@ -1,6 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {Events, LoadingController, MenuController, NavController, Platform} from 'ionic-angular';
-import {StatusBar} from '@ionic-native/status-bar';
+// import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 
 
@@ -11,6 +11,8 @@ import {OneVoneService} from "../services/oneVone";
 import {NameService} from "../services/name";
 import {ConnectionStatusEnum, NetworkService} from "../services/networkservice";
 import {Network} from '@ionic-native/network';
+import {timer} from "rxjs/observable/timer";
+import {StatusBar} from "@ionic-native/status-bar";
 
 
 @Component({
@@ -21,6 +23,7 @@ export class VokabelQuiz {
   isAuthenticated = false;
   @ViewChild('nav') nav: NavController;
   afAuth: AngularFireAuth;
+  showSplash = true;
 
   constructor(platform: Platform,
               statusBar: StatusBar,
@@ -34,13 +37,12 @@ export class VokabelQuiz {
               public network: Network,
               public networkProvider: NetworkService,
               public loadingCtrl: LoadingController) {
-
     this.afAuth = afAuth;
     this.networkProvider.initializeNetworkEvents();
 
     this.events.subscribe('network:online', () => {
       if(this.isAuthenticated==true){
-        this.rootPage = 'HomePage'
+        this.rootPage = 'OfflinePage'
       }
     });
 
@@ -48,6 +50,7 @@ export class VokabelQuiz {
     afAuth.authState.subscribe(user => {
       if (user) {
         console.log('user');
+        this.authService.loggedIn = true;
         this.isAuthenticated = true;
         this.nameService.getUsername().then(res => {
           this.rootPage = 'HomePage';
@@ -66,19 +69,24 @@ export class VokabelQuiz {
         )
       }
       else {
-        console.log('reg');
+        this.authService.loggedIn = false;
         this.isAuthenticated = false;
-        this.rootPage = 'RegistrationPage';
+        this.rootPage = 'OfflinePage';
       }
     });
 
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
+
       statusBar.styleDefault();
       splashScreen.hide();
+      timer(3000).subscribe(() =>{ this.showSplash = false; this.authService.splash = false})
+
     });
   }
+
+    // ionViewDidLoad(){
+    // this.authService.splashing();
+    // }
 
 
   onLogout() {
@@ -91,5 +99,16 @@ export class VokabelQuiz {
     this.nav.push('SettingsPage');
   }
 
+  onLoadOnline(){
+    if(this.networkProvider.isOnline == true) {
+      if (this.authService.loggedIn == false) {
+        this.nav.setRoot('RegistrationPage');
+      } else {
+        this.nav.setRoot('HomePage')
+      }
+    }else{
+
+    }
+  }
 }
 

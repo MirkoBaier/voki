@@ -1,6 +1,8 @@
 page-name {
   .name-backg{
-    background-color: #00dbff;
+    background-image: url('../../assets/imgs/backpic.png');
+    background-repeat: no-repeat;
+    background-size:cover;
   }
   .name-backg::-moz-placeholder {
     color: #fafafa;
@@ -16,5 +18,40 @@ page-name {
 
   .name-div{
     margin-top: 50%;
+  }
+
+  .name-nav{
+    background: rgba(0, 0, 0, 0.1);
+    color: black;
+  }
+
+
+  .text-input::-moz-placeholder {
+    color: #fafafa;
+  }
+
+  .text-input:-ms-input-placeholder {
+    color: #fafafa;
+  }
+
+  .text-input::-webkit-input-placeholder {
+    color:  #fafafa;
+  }
+
+  .text-input{
+    background: transparent;
+    color: white;
+  }
+
+  .input-wrapper{
+    background-color: transparent;
+  }
+
+  .item{
+    background-color: transparent;
+  }
+
+  .name-button{
+    border-radius: 20px;
   }
 }

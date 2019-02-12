@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="dasvokabelquiz.firstt.uploadd" version="0.0.7" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="dasvokabelquiz.firstt.uploadd" version="0.1.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>VokabelQuiz</name>
     <description>Lerne Vokabeln im Quizmodus</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
@@ -12,14 +12,18 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <preference name="ScrollEnabled" value="false" />
-    <preference name="android-minSdkVersion" value="19" />
+    <preference name="android-minSdkVersion" value="15" />
     <preference name="BackupWebStorage" value="none" />
     <preference name="SplashMaintainAspectRatio" value="true" />
-    <preference name="FadeSplashScreenDuration" value="300" />
+    <preference name="FadeSplashScreenDuration" value="0" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
-    <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
+    <preference name="ShowSplashScreen" value="true" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
+    <preference name="KeyboardDisplayRequiresUserAction" value="false" />
+    <feature name="StatusBar" />
     <platform name="android">
+        <resource-file src="google-services.json" target="google-services.json" />
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
@@ -79,7 +83,6 @@
     <plugin name="cordova-plugin-whitelist" spec="1.3.3" />
     <plugin name="cordova-plugin-statusbar" spec="2.4.2" />
     <plugin name="cordova-plugin-device" spec="2.0.2" />
-    <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^2.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <plugin name="cordova-plugin-firebase" spec="2.0.5" />
@@ -87,6 +90,9 @@
     <plugin name="cordova-plugin-googleplus" spec="6.0.0">
         <variable name="WEB_APPLICATION_CLIENT_ID" value="301583012596-4fc96caf459rtcodvghadmfecvkevsk5.apps.googleusercontent.com" />
     </plugin>
+    <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
+    <plugin name="com.telerik.plugins.nativepagetransitions" spec="0.6.5" />
+    <plugin name="cordova-plugin-dreamover-uid" spec="~1.3.0" />
     <engine name="android" spec="^7.1.4" />
     <engine name="browser" spec="5.0.4" />
 </widget>

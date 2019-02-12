@@ -1,6 +1,16 @@
 // http://ionicframework.com/docs/theming/
+//@import '~magic.css/magic.min.css';
 
-
+//@import "~@ionic/angular/css/normalize.css";
+//@import "~@ionic/angular/css/structure.css";
+//@import "~@ionic/angular/css/typography.css";
+//@import "~@ionic/angular/css/colors.css";
+//
+//@import "~@ionic/angular/css/padding.css";
+//@import "~@ionic/angular/css/float-elements.css";
+//@import "~@ionic/angular/css/text-alignment.css";
+//@import "~@ionic/angular/css/text-transformation.css";
+//@import "~@ionic/angular/css/flex-utils.css";
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -16,21 +26,86 @@
 // automatically applied to the <body> element in the app.
 
 
+
+.splash {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../assets/imgs/neulogo512v3.png');
+  background-repeat: no-repeat;
+  background-position:center;
+  background-color: white;
+  background-size:cover;
+  animation-name: fadeIn;
+  animation-duration: 4s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.spinnerr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-image: url('../assets/imgs/neulogo40v3.png');
+
+  margin: 100px auto;
+  -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+  animation: sk-rotateplane 1.2s infinite ease-in-out;
+}
+
+
+
+@-webkit-keyframes sk-rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+
+@keyframes sk-rotateplane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+  } 50% {
+      transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+      -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+    } 100% {
+        transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+        -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+      }
+}
+
+
+
+
 ion-menu{
   ion-content{
-    background-color:  #00DBFF!important;
+    background:  #222 !important;
   }
 
 }
 
+.modal-wrapper {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
 
 .alert-head {
-  //background-color: #009689;
-  //border: 5px solid red;
-  //color:#e7333c;
-  //$alert-input-placeholder-color: #bfb40b;
-
-  //color: white; // text color for basic alerts
   button {
     color: white !important;
     background-color: color($colors, secondary, base) !important;
@@ -43,5 +118,11 @@ ion-menu{
     background-color: color($colors, dark, base);
     border-radius: 20px;
   }
+
+
+
+
+
+
 }
 

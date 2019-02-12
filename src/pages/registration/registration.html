@@ -1,36 +1,45 @@
-
-
-
 <ion-content padding class="regi-backg">
-  <ion-img style="transform: perspective(200px) rotateY(50deg);" class="imgreg" width="80" height="80" src="../../assets/imgs/neulogo512.png"></ion-img>
+  <ion-img  alt="" style="transform: perspective(200px) rotateY(50deg);" class="imgreg" width="80" height="80"
+           src="../../assets/imgs/neulogo512.png"></ion-img>
   <div class="regdiff">
-  <form #f="ngForm"  (ngSubmit)="onSignup(f)">
-    <ion-list >
-      <ion-item class="regForm">
-        <ion-label floating>Mail</ion-label>
-        <ion-input
-          class="notopacity"
-          type="email"
-          ngModel
-          name="email"
-          required></ion-input>
-      </ion-item>
-      <ion-item  class="regForm">
-        <ion-label floating>Passwort</ion-label>
-        <ion-input
-          type="password"
-          ngModel
-          name="password"
-          required
-          [minlength]="6"></ion-input>
-      </ion-item>
-    </ion-list>
-    <button class="reg" large ion-button block type="submit" [disabled]="!f.valid">Kostenlos registrieren</button>
-  </form>
-    <button class="reg" icon-left ion-button block outline (click)="loginWithGoogle()">
-      <ion-icon name="logo-googleplus"></ion-icon>
-     Mit Google anmelden
+    <form #f="ngForm" (ngSubmit)="onSignup(f)">
+      <ion-list>
+        <ion-item class="regForm">
+          <ion-label floating>Mail</ion-label>
+          <ion-input
+            class="notopacity text-input"
+            type="email"
+            ngModel
+            name="email"
+            required></ion-input>
+        </ion-item>
+        <ion-item class="regForm">
+          <ion-label floating>Passwort</ion-label>
+          <ion-input
+            type="password"
+            ngModel
+            name="password"
+            required
+            [minlength]="6"
+            class="text-input"></ion-input>
+        </ion-item>
+      </ion-list>
+      <button color="white" class="reg" large ion-button block type="submit" [disabled]="!f.valid">Kostenlos
+        registrieren
+      </button>
+    </form>
+    <ion-row>
+      <!--<ion-col col-6="true">
+        <button color="white" class="reg" icon-left ion-button block outline (click)="loginWithGoogle()">
+          <ion-icon name="logo-googleplus"></ion-icon>
+          Anmeldung
+        </button>
+      </ion-col>-->
+      <ion-col col-12="true">
+        <button color="white" class="reg" block outline (click)="OfflineModus()" ion-button>Offline-Modus</button>
+      </ion-col>
+    </ion-row>
+    <button color="white" class="reg" large block outline ion-button clear (click)="onLoad(loginPage)">Hier einloggen
     </button>
-  <button color="white" large block ion-button clear (click)="onLoad(loginPage)">Hier einloggen</button>
   </div>
 </ion-content>

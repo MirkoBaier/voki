@@ -1,0 +1,126 @@
+<ion-header>
+  <ion-navbar transparent>
+    <ion-buttons left>
+      <button color="white" ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="backpic" padding>
+  <div *ngIf="this.authService.splash" class="showsplash">
+  </div>
+  <div *ngIf="!this.authService.splash">
+    <div *ngIf="!minimizing">
+      <button class="round-button" outline color="white" ion-button block (click)="minimize(true)">Vokabeln hinzufügen</button>
+    </div>
+    <div *ngIf="minimizing">
+      <button class="round-button" outline color="white" block ion-button (click)="goReg()">Online Quiz</button>
+      <form #g="ngForm">
+        <ion-row>
+          <ion-col col-10="true">
+            <ion-item class="transjo">
+              <ion-input
+                class="text-input"
+                placeholder="Neue Vokabel"
+                [(ngModel)]="inputvoc"
+                name="voc"
+                ngModel
+                required
+                #input></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col col-2="true">
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-10="true">
+            <ion-item class="transjo">
+              <ion-input
+                [(ngModel)]="inputtrans"
+                class="text-input"
+                placeholder="Übersetzung"
+                name="trans"
+                ngModel
+                [minlength]="1"
+                required></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col col-2="true">
+            <button class="round-button" [disabled]="!g.valid" ion-button [outline]="true" color="white" type="button" (click)="test()">
+              <ion-icon name="add"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="voclist">
+          <ion-col col-10="true">
+            <ion-item class="transjo">
+              <ion-input
+                [(ngModel)]="listName"
+                class="text-input"
+                placeholder="Listenname"
+                name="listname"
+                ngModel
+                [minlength]="1"
+                required></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col col-2="true">
+            <button class="round-button" outline color="white" ion-button (click)="vocliste(false)">
+              <ion-icon name="arrow-up"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="!voclist">
+          <ion-col col-10="true">
+            <ion-list>
+              <ion-item class="transjo text-input">
+                <ion-label floating>Liste</ion-label>
+                <ion-select [(ngModel)]="listName" name="first">
+                  <ion-option *ngFor="let offline of offlineArrayList" value={{offline.listName}}>{{offline.listName}}
+                  </ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+          <ion-col col-2="true">
+            <button class="round-button" outline color="white" ion-button (click)="vocliste(true)">
+              <ion-icon name="arrow-down"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-10="true">
+            <button class="round-button" outline color="white" ion-button block [disabled]="!g.valid" type="submit" (click)="test()">
+              Hinzufügen
+            </button>
+          </ion-col>
+          <ion-col col-2="true">
+            <button class="round-button" color="white" [outline]="true" ion-button (click)="minimize(false)">
+              <ion-icon name="remove"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </form>
+    </div>
+  </div>
+  <ion-list  *ngFor="let offline of offlineArrayList">
+    <ion-item icon-start>
+      <button color="white" ion-button item-start (click)="startVoc(offline)">
+        <ion-icon name="school"></ion-icon>
+      </button>
+      <ion-item-sliding class="backoffitem">
+      <button color="white" ion-item class="backoffitem" (click)="openList(offline.listName)">
+        {{offline.listName}}
+      </button>
+        <ion-item-options>
+      <button item-end ion-button color="danger" type="button" (click)="removeListe(offline.listName, offline.time)">
+      <ion-icon name="trash"></ion-icon>
+      </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-item>
+  </ion-list>
+</ion-content>

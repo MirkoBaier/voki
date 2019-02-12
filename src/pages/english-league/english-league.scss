@@ -1,10 +1,25 @@
 page-english-league {
   .english-league-backg{
-    background-color: #00dbff!important;
+    //background-color: #00dbff!important;
+    background-image: url('../../assets/imgs/backpic.png');
+    background-repeat: no-repeat;
+    background-size:cover;
   }
 
-  .input-wrapper, .test-wrapper,  .item{
-    background-color: #00dbff!important;
+   .test-wrapper{
+    background-color: transparent;
+    //opacity: 0.7;
+    //background-image: url('../../assets/imgs/backpic.png');
+    background-repeat: no-repeat;
+    background-size:cover;
+  }
+
+  .input-wrapper{
+    background-color: transparent;
+  }
+
+  .item{
+    background-color: transparent;
   }
 
   .label{

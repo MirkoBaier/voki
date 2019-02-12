@@ -56,6 +56,9 @@ export class RegistrationPage {
     this.navCtrl.push('LoginPage');
   }
 
+  OfflineModus(){
+    this.navCtrl.setRoot('OfflinePage')
+  }
 
 
 }

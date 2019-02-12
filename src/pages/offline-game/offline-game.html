@@ -1,0 +1,44 @@
+<!--
+  Generated template for the OfflineGamePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header transparent>
+
+  <ion-navbar transparent>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="backpic" padding>
+  <div class="container">
+  <div class="halpi">
+  <form  #f="ngForm">
+<ion-item class="backoffitem">Übersetze: {{voc}}</ion-item>
+    <div *ngIf="this.actualModus=='1'||'2'">
+  <ion-input
+    [(ngModel)]="userTrans"
+    class="text-input"
+    placeholder="Übersetzung eingeben"
+    name="userTrans"
+    ngModel
+    #input>
+  </ion-input>
+  <button block ion-button (click)="checkCorrect(f)">
+    Weiter
+  </button>
+    </div>
+    <div *ngIf="this.actualModus=='3'">
+      {{trans}}
+    </div>
+  </form>
+  </div>
+    <div [@myvisibility]="visibleState" class="animate-me">
+    </div>
+  </div>
+
+
+</ion-content>

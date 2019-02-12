@@ -16,10 +16,38 @@ page-onevsone-game {
   }
 
   .onebackg{
-    background-color: #00DBFF;
+    //background-color: #00DBFF;
+    background-image: url('../../assets/imgs/backpic.png');
+    background-repeat: no-repeat;
+    background-size:cover;
   }
 
   .onewhite{
     color: white;
+  }
+
+  .text-input::-moz-placeholder {
+    color: #fafafa;
+  }
+
+  .text-input:-ms-input-placeholder {
+    color: #fafafa;
+  }
+
+  .text-input::-webkit-input-placeholder {
+    color:  #fafafa;
+  }
+
+  .text-input{
+    background: transparent;
+    color: white;
+  }
+
+  .input-wrapper{
+    background-color: transparent;
+  }
+
+  .item{
+    background-color: transparent;
   }
 }

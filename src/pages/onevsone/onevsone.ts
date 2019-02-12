@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import {IonicPage, LoadingController, NavController} from 'ionic-angular';
 import {AuthService} from "../../services/auth";
 import {OneVoneService} from "../../services/oneVone";
 import {NameService} from "../../services/name";
@@ -14,11 +14,20 @@ import {TrainingsService} from "../../services/training";
 export class OnevsonePage {
   users: any[];
   oldUsers: any[];
-  constructor(private oneVoneService:  OneVoneService,private authService: AuthService, private navCtrl: NavController, private nameService: NameService, private trainingsService: TrainingsService) {
+  constructor(private oneVoneService:  OneVoneService,
+              private authService: AuthService,
+              private navCtrl: NavController,
+              private nameService: NameService,
+              private trainingsService: TrainingsService,
+              private loadingCtrl: LoadingController) {
   }
 
   async ngOnInit(){
     //Alle User werden angezeigt ausnahme er selber
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    loading.present();
     let username = await this.nameService.getUsername();
     await this.authService.getDocuments("userProfile").then(users=> {
       for(let i = users.length - 1; i >= 0; i--) {
@@ -28,6 +37,7 @@ export class OnevsonePage {
       }
       this.users = users;
       this.oldUsers= users;
+      loading.dismiss();
       })
   }
 
