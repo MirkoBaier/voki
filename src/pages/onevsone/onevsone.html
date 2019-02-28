@@ -9,7 +9,7 @@
 
 <ion-content padding class="onevsone-backg">
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-  <button class="enemyonevone" color="red" block large ion-button (click)="randomEnemy()">Zufälliger Gegner</button>
+  <button *ngIf="onlyFriends" class="enemyonevone" color="red" block large ion-button (click)="randomEnemy()">Zufälliger Gegner</button>
   <ion-list>
     <button class="enemyonevone" *ngFor="let item of users" block ion-button large (click)="onLoadpage(item.username)" >
       {{ item.username }}

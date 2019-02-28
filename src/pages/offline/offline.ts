@@ -127,6 +127,14 @@ export class OfflinePage {
       title: 'Modus auswählen',
       buttons: [
         {
+          text: 'Vokabelliste Online lernen',
+          role: 'destructive',
+          handler: () => {
+            this.vocService.actualModus = '0';
+            this.navCtrl.push("OnevsonePage")
+          }
+        },
+        {
           text: 'Vokabel zu Übersetzung',
           role: 'destructive',
           handler: () => {

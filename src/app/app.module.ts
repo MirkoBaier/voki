@@ -27,6 +27,7 @@ import { CommonModule } from '@angular/common';
 import {NativePageTransitions} from "@ionic-native/native-page-transitions";
 import {OfflineService} from "../services/offlineservice";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {OwnVocOnlineService} from "../services/ownVocOnlineService";
 
 
 var config = {
@@ -76,6 +77,7 @@ var config = {
     NetworkService,
     Network,
     OfflineService,
+    OwnVocOnlineService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
