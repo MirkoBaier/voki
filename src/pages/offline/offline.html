@@ -16,11 +16,9 @@
       <button class="round-button" outline color="white" ion-button block (click)="minimize(true)">Vokabeln hinzufügen</button>
     </div>
     <div *ngIf="minimizing">
-      <button class="round-button" outline color="white" block ion-button (click)="goReg()">Online Quiz</button>
       <form #g="ngForm">
         <ion-row>
           <ion-col col-10="true">
-            <ion-item class="transjo">
               <ion-input
                 class="text-input"
                 placeholder="Neue Vokabel"
@@ -29,14 +27,12 @@
                 ngModel
                 required
                 #input></ion-input>
-            </ion-item>
           </ion-col>
           <ion-col col-2="true">
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col col-10="true">
-            <ion-item class="transjo">
               <ion-input
                 [(ngModel)]="inputtrans"
                 class="text-input"
@@ -44,8 +40,8 @@
                 name="trans"
                 ngModel
                 [minlength]="1"
+                (keyup.enter)="test()"
                 required></ion-input>
-            </ion-item>
           </ion-col>
           <ion-col col-2="true">
             <button class="round-button" [disabled]="!g.valid" ion-button [outline]="true" color="white" type="button" (click)="test()">
@@ -55,7 +51,6 @@
         </ion-row>
         <ion-row *ngIf="voclist">
           <ion-col col-10="true">
-            <ion-item class="transjo">
               <ion-input
                 [(ngModel)]="listName"
                 class="text-input"
@@ -63,11 +58,12 @@
                 name="listname"
                 ngModel
                 [minlength]="1"
-                required></ion-input>
-            </ion-item>
+                (keyup.enter)="test()"
+                #input
+                ></ion-input>
           </ion-col>
           <ion-col col-2="true">
-            <button class="round-button" outline color="white" ion-button (click)="vocliste(false)">
+            <button class="round-button" outline color="white" ion-button>
               <ion-icon name="arrow-up"></ion-icon>
             </button>
           </ion-col>
@@ -79,7 +75,8 @@
               <ion-item class="transjo text-input">
                 <ion-label floating>Liste</ion-label>
                 <ion-select [(ngModel)]="listName" name="first">
-                  <ion-option *ngFor="let offline of offlineArrayList" value={{offline.listName}}>{{offline.listName}}
+                  <ion-option *ngFor="let offline of offlineArrayList" value={{offline.listName}}>
+                    {{offline.listName}}
                   </ion-option>
                 </ion-select>
               </ion-item>
@@ -108,7 +105,7 @@
   </div>
   <ion-list  *ngFor="let offline of offlineArrayList">
     <ion-item icon-start>
-      <button color="white" ion-button item-start (click)="startVoc(offline)">
+      <button class="c-start-lecture" color="white" ion-button item-start (click)="startVoc(offline)">
         <ion-icon name="school"></ion-icon>
       </button>
       <ion-item-sliding class="backoffitem">

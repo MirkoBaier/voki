@@ -98,6 +98,7 @@ export class OfflinePage {
 
   //Vokabel hinzufügen
   async test() {
+    if(this.listName !== undefined && this.inputtrans !== undefined && this.inputvoc !== undefined){
     let OfflineArray = [];
     let Offline = new OfflineVoc(this.inputvoc, this.inputtrans, this.listName, 0, 0, 0, new Date().toString());
     OfflineArray.push(Offline);
@@ -105,11 +106,19 @@ export class OfflinePage {
       this.vocService.getOfflineDataList().then(res => this.offlineArrayList = res);
       this.inputtrans = "";
       this.inputvoc = "";
+      this.vocliste(false);
       setTimeout(() => {
         this.myInput.setFocus();
       },400);
     });
+    }
+  }
 
+  test2(){
+    setTimeout(() => {
+      this.myInput.setFocus();
+    },400);
+    console.log("tset2");
   }
 
   async startVoc(voc: OfflineVoc){

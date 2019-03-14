@@ -3,6 +3,44 @@ page-offline {
   background-color: white;
 }
 
+input[type=text], textarea {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  transition: all 0.30s ease-in-out;
+  outline: none;
+  padding: 5px 5px 5px 25px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #DDDDDD;
+  width: 100%;
+}
+
+.c-start-lecture{
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  transition: all 0.30s ease-in-out;
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  padding: 10px 10px 10px 10px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid rgba(81, 203, 238, 1);
+  animation: glowing 5000ms infinite;
+}
+
+@keyframes glowing {
+  0% { box-shadow: 0 0 -10px #c4a300; }
+  40% { box-shadow: 0 0 40px #ffd503; }
+  60% { box-shadow: 0 0 40px #c4a300; }
+  100% { box-shadow: 0 0 -10px #c4a300; }
+}
+
+input[type=text]:focus, textarea:focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  padding: 10px 10px 10px 10px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+
 
 
   .backpic{
@@ -12,9 +50,16 @@ page-offline {
   }
 
   .transjo{
-    background-image: url('../../assets/imgs/backpic.png');
+    border: 1px solid #DDDDDD;
+    width: 98%;
   }
 
+  .button-inner:focus {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    padding: 10px 10px 10px 10px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid rgba(81, 203, 238, 1);
+  }
 
   .text-input::-moz-placeholder {
     color: #fafafa;
@@ -31,6 +76,7 @@ page-offline {
   .text-input{
     color: color($colors, white);
     font-size: 1.2em;
+    padding: 26;
   }
 
   .round-button{

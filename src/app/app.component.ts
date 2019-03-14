@@ -84,11 +84,6 @@ export class VokabelQuiz {
     });
   }
 
-    // ionViewDidLoad(){
-    // this.authService.splashing();
-    // }
-
-
   onLogout() {
     this.authService.logout();
     this.menuCtrl.close();
