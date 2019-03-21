@@ -5,7 +5,6 @@ import 'firebase/auth'
 import {Injectable} from "@angular/core";
 import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from "@angular/fire/firestore";
 import {AngularFireAuth} from "@angular/fire/auth";
-// import * as firebase from 'firebase/app';
 import {NameService} from "./name";
 import {Game} from "../models/game";
 import {AuthService} from "./auth";

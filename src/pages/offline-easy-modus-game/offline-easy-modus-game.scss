@@ -1,0 +1,26 @@
+page-offline-easy-modus-game {
+    .backpic{
+            background-image: url('../../assets/imgs/backpic.png');
+            background-repeat: no-repeat;
+            background-size:cover;
+     }
+
+     .c-dragula{
+         color: blue;
+         background: yellow;
+         display: flex;
+     }
+
+     .c-half-card{
+        width: 20%;
+        display: inline-block;
+        border: 1px solid black;
+     }
+
+     ion-list {
+        min-height: 100px;
+        padding-bottom: 50px;
+        background-color:yellow;
+      }
+    
+}

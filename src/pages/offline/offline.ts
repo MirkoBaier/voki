@@ -177,7 +177,19 @@ export class OfflinePage {
               this.showAlert();
             }
           }
-        },{
+        },
+        {
+          text: 'Training: Easy Modus',
+          handler: () => {
+            this.vocService.actualModus = '5';
+            if(this.offlineService.actualVoc.length >=4) {
+              this.navCtrl.push("OfflineEasyModusGamePage")
+            }else{
+              this.showAlert();
+            }
+          }
+        },
+        {
           text: 'Zurück',
           role: 'cancel',
           handler: () => {

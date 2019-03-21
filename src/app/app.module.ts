@@ -28,6 +28,7 @@ import {NativePageTransitions} from "@ionic-native/native-page-transitions";
 import {OfflineService} from "../services/offlineservice";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {OwnVocOnlineService} from "../services/ownVocOnlineService";
+import { DragulaModule } from 'ng2-dragula';
 
 
 var config = {
@@ -49,6 +50,7 @@ var config = {
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    DragulaModule.forRoot(),
     IonicModule.forRoot(VokabelQuiz, {
       preloadModules: true // <- Here!
     }),

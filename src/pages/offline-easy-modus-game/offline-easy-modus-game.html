@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-navbar transparent>
+      <ion-buttons left>
+        <button color="white" ion-button icon-only menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content class="backpic" padding>
+    <!-- <div dragula="todos" [dragulaModel]="$todos" (dragulaModelChange)="$todos = $event">
+     <ion-item class="c-half-card" *ngFor="let toDo of $todos">
+      {{toDo}}
+    </ion-item>
+    </div>   -->
+
+    <!-- <ion-list class="todo-elements"  dragula="todos" [dragulaModel]="$todos" (dragulaModelChange)="$todos = $event">
+        <ion-button (ping)="update($event)"  *ngFor="let todo of $todos">{{todo}}</ion-button>
+    </ion-list> -->
+
+    <ion-row>
+        <ion-col width-50 class="left">
+          <div class="header">First Bucket</div>
+          <ion-list [dragula]='"bag"' [dragulaModel]="q1">
+            <button ion-item *ngFor="let item of q1">
+              {{item}}
+            </button>
+          </ion-list>
+        </ion-col>
+    
+        <ion-col width-50 class="right">
+          <div class="header">Second Bucket</div>
+          <ion-list [dragula]='"bag"' [dragulaModel]="q2">
+            <div ion-item *ngFor="let item of q2">
+              {{item}}
+            </div>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    
+</ion-content>
